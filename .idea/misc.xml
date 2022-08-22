@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidProjects/dota/app/src/main/res/drawable/bg_round_button.xml" value="0.1" />
         <entry key="..\:/AndroidProjects/dota/app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
+        <entry key="..\:/AndroidProjects/dota/app/src/main/res/layout/fragment_aegis.xml" value="0.28854166666666664" />
+        <entry key="..\:/AndroidProjects/dota/app/src/main/res/layout/fragment_hero_details.xml" value="0.28854166666666664" />
+        <entry key="..\:/AndroidProjects/dota/app/src/main/res/layout/fragment_heroes.xml" value="0.2875" />
       </map>
     </option>
   </component>

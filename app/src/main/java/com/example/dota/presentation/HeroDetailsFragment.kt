@@ -1,10 +1,11 @@
-package com.example.dota
+package com.example.dota.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.dota.R
 import com.example.dota.databinding.FragmentHeroDetailsBinding
 
 class HeroDetailsFragment : Fragment(R.layout.fragment_hero_details) {

@@ -1,11 +1,12 @@
 package com.example.dota.data
 
+import io.reactivex.Single
 import javax.inject.Inject
 
 class HeroRepository @Inject constructor(
-    var heroService: HeroService
+    private val heroService: HeroService
 ) {
 
-    fun fetchHeroList(): List<Hero> = heroService.fetchHeroList()
+    fun fetchHeroList(): Single<List<Hero>> = heroService.fetchHeroList()
 
 }

@@ -6,7 +6,7 @@
     app:startDestination="@id/aegisFragment">
     <fragment
         android:id="@+id/aegisFragment"
-        android:name="com.example.dota.presentation.AegisFragment"
+        android:name="com.example.dota.presentation.aegis.AegisFragment"
         android:label="fragment_aegis"
         tools:layout="@layout/fragment_aegis" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/heroesFragment"
-        android:name="com.example.dota.presentation.HeroesFragment"
+        android:name="com.example.dota.presentation.heroes.HeroesFragment"
         android:label="fragment_heroes"
         tools:layout="@layout/fragment_heroes" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/heroDetailsFragment"
-        android:name="com.example.dota.presentation.HeroDetailsFragment"
+        android:name="com.example.dota.presentation.heroDetails.HeroDetailsFragment"
         android:label="fragment_hero_details"
         tools:layout="@layout/fragment_hero_details" />
 </navigation>

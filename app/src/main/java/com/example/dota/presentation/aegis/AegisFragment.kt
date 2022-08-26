@@ -1,4 +1,4 @@
-package com.example.dota.presentation
+package com.example.dota.presentation.aegis
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.dota.R
 import com.example.dota.databinding.FragmentAegisBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AegisFragment : Fragment(R.layout.fragment_aegis) {
 
     private lateinit var binding: FragmentAegisBinding

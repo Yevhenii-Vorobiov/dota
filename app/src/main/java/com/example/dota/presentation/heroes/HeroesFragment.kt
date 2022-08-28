@@ -16,6 +16,7 @@ class HeroesFragment : Fragment(R.layout.fragment_heroes) {
 
     private lateinit var binding: FragmentHeroesBinding
     private val viewModel: HeroesViewModel by viewModels()
+    private val heroesAdapter: HeroesAdapter = HeroesAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,5 +34,9 @@ class HeroesFragment : Fragment(R.layout.fragment_heroes) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getHeroes()
+        viewModel.heroesLiveData.observe(viewLifecycleOwner) { heroes ->
+            heroesAdapter.update(heroes)
+        }
+        binding.rvHeroes.adapter = heroesAdapter
     }
 }

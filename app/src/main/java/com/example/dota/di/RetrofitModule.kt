@@ -17,6 +17,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
+    const val OPEN_DATA_API_URL = "https://api.opendota.com"
+
     @Singleton
     @Provides
     fun provideGson(): Gson = GsonBuilder()
@@ -36,7 +38,7 @@ object RetrofitModule {
     @Provides
     @Singleton
     fun provideRetrofit(client: OkHttpClient, gson: Gson): Retrofit = Retrofit.Builder()
-        .baseUrl("https://api.opendota.com")
+        .baseUrl(OPEN_DATA_API_URL)
         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(gson))
         .client(client)

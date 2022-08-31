@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.dota.R
+import com.example.dota.data.Hero
 import com.example.dota.databinding.FragmentHeroesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,9 @@ class HeroesFragment : Fragment(R.layout.fragment_heroes) {
 
     private lateinit var binding: FragmentHeroesBinding
     private val viewModel: HeroesViewModel by viewModels()
-    private val heroesAdapter: HeroesAdapter = HeroesAdapter()
+    private val heroesAdapter: HeroesAdapter = HeroesAdapter { hero ->
+        navigateToHeroDetails(hero)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,8 +30,9 @@ class HeroesFragment : Fragment(R.layout.fragment_heroes) {
         return binding.root
     }
 
-    private fun navigateToHeroDetails() {
-        findNavController().navigate(R.id.action_heroesFragment_to_heroDetailsFragment)
+    private fun navigateToHeroDetails(hero: Hero) {
+        val action = HeroesFragmentDirections.actionHeroesFragmentToHeroDetailsFragment(hero)
+        findNavController().navigate(action)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

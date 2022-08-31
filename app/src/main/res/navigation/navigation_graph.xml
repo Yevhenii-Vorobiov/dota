@@ -8,7 +8,7 @@
         android:id="@+id/aegisFragment"
         android:name="com.example.dota.presentation.aegis.AegisFragment"
         android:label="fragment_aegis"
-        tools:layout="@layout/fragment_aegis" >
+        tools:layout="@layout/fragment_aegis">
         <action
             android:id="@+id/action_aegisFragment_to_heroesFragment"
             app:destination="@id/heroesFragment" />
@@ -17,7 +17,7 @@
         android:id="@+id/heroesFragment"
         android:name="com.example.dota.presentation.heroes.HeroesFragment"
         android:label="fragment_heroes"
-        tools:layout="@layout/fragment_heroes" >
+        tools:layout="@layout/fragment_heroes">
         <action
             android:id="@+id/action_heroesFragment_to_heroDetailsFragment"
             app:destination="@id/heroDetailsFragment" />
@@ -26,5 +26,9 @@
         android:id="@+id/heroDetailsFragment"
         android:name="com.example.dota.presentation.heroDetails.HeroDetailsFragment"
         android:label="fragment_hero_details"
-        tools:layout="@layout/fragment_hero_details" />
+        tools:layout="@layout/fragment_hero_details">
+        <argument
+            android:name="hero"
+            app:argType="com.example.dota.data.Hero" />
+    </fragment>
 </navigation>

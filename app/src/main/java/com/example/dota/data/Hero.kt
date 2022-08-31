@@ -1,11 +1,11 @@
 package com.example.dota.data
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Hero(
 
     @SerializedName("id") var id: Int? = null,
-//    @SerializedName("name") var name: String? = null,
     @SerializedName("localized_name") var name: String? = null,
     @SerializedName("primary_attr") var attribute: String? = null,
     @SerializedName("attack_type") var attackType: String? = null,
@@ -40,4 +40,4 @@ data class Hero(
     @SerializedName("pro_win") var proWin: Int? = null,
     @SerializedName("pro_pick") var proPick: Int? = null,
 
-    )
+) : Serializable

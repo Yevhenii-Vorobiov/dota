@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs'
 }
 
 android {
@@ -84,4 +85,6 @@ dependencies {
     //fragment ktx
     implementation "androidx.core:core-ktx:1.8.0"
     implementation "androidx.fragment:fragment-ktx:1.5.2"
+
+    //navigation
 }

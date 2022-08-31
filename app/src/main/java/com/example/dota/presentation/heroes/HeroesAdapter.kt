@@ -12,7 +12,7 @@ import com.example.dota.util.extentions.loadFromUrl
 import com.squareup.picasso.Picasso
 import okhttp3.internal.notify
 
-class HeroesAdapter : RecyclerView.Adapter<HeroesAdapter.HeroesViewHolder>() {
+class HeroesAdapter(val onClick: (hero: Hero) -> Unit) : RecyclerView.Adapter<HeroesAdapter.HeroesViewHolder>() {
 
     private var heroes: List<Hero> = listOf()
 
@@ -44,7 +44,7 @@ class HeroesAdapter : RecyclerView.Adapter<HeroesAdapter.HeroesViewHolder>() {
             val url = RetrofitModule.OPEN_DATA_API_URL + hero.img
             binding.ivHeroImage.loadFromUrl(url)
             binding.root.setOnClickListener {
-                Toast.makeText(it.context, "${hero.name}", Toast.LENGTH_SHORT).show()
+                onClick.invoke(hero)
             }
         }
     }

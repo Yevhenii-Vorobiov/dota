@@ -9,20 +9,21 @@ import androidx.navigation.fragment.navArgs
 import com.example.dota.R
 import com.example.dota.databinding.FragmentHeroDetailsBinding
 import com.example.dota.di.RetrofitModule
+import com.example.dota.util.extentions.dataBinding
 import com.example.dota.util.extentions.loadFromUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HeroDetailsFragment : Fragment(R.layout.fragment_hero_details) {
+class HeroDetailsFragment : Fragment() {
 
-    private lateinit var binding: FragmentHeroDetailsBinding
+    private val binding: FragmentHeroDetailsBinding by dataBinding(R.layout.fragment_hero_details)
     private val args: HeroDetailsFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHeroDetailsBinding.inflate(inflater, container, false)
         val url = RetrofitModule.OPEN_DATA_API_URL + args.hero.img
         binding.ivHeroImage.loadFromUrl(url)
         return binding.root

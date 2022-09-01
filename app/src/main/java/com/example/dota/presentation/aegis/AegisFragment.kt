@@ -8,19 +8,19 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.dota.R
 import com.example.dota.databinding.FragmentAegisBinding
+import com.example.dota.util.extentions.dataBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AegisFragment : Fragment(R.layout.fragment_aegis) {
+class AegisFragment : Fragment() {
 
-    private lateinit var binding: FragmentAegisBinding
+    private val binding: FragmentAegisBinding by dataBinding(R.layout.fragment_aegis)
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAegisBinding.inflate(inflater, container, false)
         binding.btnNavigateToHeroes.setOnClickListener {
             navigateToHeroesFragment()
             //Toast.makeText(context, "All is good", Toast.LENGTH_LONG).show()

@@ -10,12 +10,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.dota.R
 import com.example.dota.data.Hero
 import com.example.dota.databinding.FragmentHeroesBinding
+import com.example.dota.util.extentions.dataBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HeroesFragment : Fragment(R.layout.fragment_heroes) {
+class HeroesFragment : Fragment() {
 
-    private lateinit var binding: FragmentHeroesBinding
+    private val binding: FragmentHeroesBinding by dataBinding(R.layout.fragment_heroes)
     private val viewModel: HeroesViewModel by viewModels()
     private val heroesAdapter: HeroesAdapter = HeroesAdapter { hero ->
         navigateToHeroDetails(hero)
@@ -26,7 +27,6 @@ class HeroesFragment : Fragment(R.layout.fragment_heroes) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentHeroesBinding.inflate(inflater, container, false)
         return binding.root
     }
 

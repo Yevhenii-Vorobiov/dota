@@ -2,6 +2,7 @@
 <layout>
 
     <data>
+
         <variable
             name="hero"
             type="com.example.dota.data.Hero" />
@@ -26,35 +27,25 @@
             tools:src="@drawable/ic_hero_axe" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:text="@{hero.name}"
             android:id="@+id/tv_hero_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:textSize="24sp"
+            android:text="@{hero.name}"
+            android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/iv_hero_image"
             app:layout_constraintTop_toTopOf="@id/iv_hero_image"
             tools:text="Axe" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:text="@{hero.attribute}"
-            android:id="@+id/tv_hero_attribute_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="@id/iv_hero_attribute_image"
-            app:layout_constraintEnd_toStartOf="@id/iv_hero_attribute_image"
-            app:layout_constraintTop_toTopOf="@id/iv_hero_attribute_image"
-            tools:text="Strength" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_hero_attribute_image"
-            android:layout_width="18dp"
-            android:layout_height="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_margin="16dp"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:loadFromString="@{hero.attribute}"
             tools:src="@drawable/ic_hero_attribute_strength" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

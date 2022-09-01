@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dota.data.Hero
 import com.example.dota.databinding.ItemHeroBinding
 import com.example.dota.di.RetrofitModule
+import com.example.dota.util.extentions.loadFromString
 import com.example.dota.util.extentions.loadFromUrl
 import com.squareup.picasso.Picasso
 import okhttp3.internal.notify

@@ -8,4 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="toxic_green">#34eb80</color>
+    <color name="woodsmoke">#141919</color>
+    <color name="shark">#1d2223</color>
+    <color name="stiletto">#9d322d</color>
+    <color name="iron">#D8dadc</color>
 </resources>

@@ -8,9 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.dota.R
 import com.example.dota.databinding.FragmentHeroDetailsBinding
-import com.example.dota.di.RetrofitModule
 import com.example.dota.util.extentions.dataBinding
-import com.example.dota.util.extentions.loadFromUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,8 +22,7 @@ class HeroDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val url = RetrofitModule.OPEN_DATA_API_URL + args.hero.img
-        binding.ivHeroImage.loadFromUrl(url)
+        binding.hero = args.hero
         return binding.root
     }
 }

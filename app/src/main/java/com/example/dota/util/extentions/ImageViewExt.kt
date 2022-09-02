@@ -3,11 +3,14 @@ package com.example.dota.util.extentions
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.example.dota.R
+import com.example.dota.di.RetrofitModule
 import com.squareup.picasso.Picasso
 
-fun ImageView.loadFromUrl(url: String){
-    Picasso.get().load(url).into(this)
+@BindingAdapter("app:loadHeroImageFromUrl")
+fun ImageView.loadHeroImageFromUrl(url: String){
+    Picasso.get().load(RetrofitModule.OPEN_DATA_API_URL + url).into(this)
 }
+
 @BindingAdapter("app:loadFromString")
 fun ImageView.loadFromString(string: String?) {
     val attributeResource: Int = when (string) {

@@ -2,16 +2,11 @@ package com.example.dota.presentation.heroes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dota.data.Hero
 import com.example.dota.databinding.ItemHeroBinding
 import com.example.dota.di.RetrofitModule
-import com.example.dota.util.extentions.loadFromString
-import com.example.dota.util.extentions.loadFromUrl
-import com.squareup.picasso.Picasso
-import okhttp3.internal.notify
+import com.example.dota.util.extentions.loadHeroImageFromUrl
 
 class HeroesAdapter(val onClick: (hero: Hero) -> Unit) : RecyclerView.Adapter<HeroesAdapter.HeroesViewHolder>() {
 
@@ -42,8 +37,6 @@ class HeroesAdapter(val onClick: (hero: Hero) -> Unit) : RecyclerView.Adapter<He
 
         fun bind(hero: Hero) {
             binding.hero = hero
-            val url = RetrofitModule.OPEN_DATA_API_URL + hero.img
-            binding.ivHeroImage.loadFromUrl(url)
             binding.root.setOnClickListener {
                 onClick.invoke(hero)
             }

@@ -41,6 +41,13 @@ class HeroesFragment : Fragment() {
         viewModel.heroesLiveData.observe(viewLifecycleOwner) { heroes ->
             heroesAdapter.update(heroes)
         }
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            if (it == true) {
+                binding.pbHeroesLoadingProgress.visibility = View.VISIBLE
+            } else {
+                binding.pbHeroesLoadingProgress.visibility = View.GONE
+            }
+        }
         binding.rvHeroes.adapter = heroesAdapter
     }
 }

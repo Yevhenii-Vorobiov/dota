@@ -8,6 +8,16 @@
         android:layout_height="match_parent"
         tools:context=".presentation.heroes.HeroesFragment">
 
+        <ProgressBar
+            android:id="@+id/pb_heroes_loading_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_heroes"
             android:layout_width="0dp"

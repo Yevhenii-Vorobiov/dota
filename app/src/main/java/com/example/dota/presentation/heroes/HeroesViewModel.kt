@@ -16,18 +16,21 @@ class HeroesViewModel @Inject constructor(
 ) : ViewModel() {
 
     val heroesLiveData: MutableLiveData<List<Hero>> = MutableLiveData()
-
+    val isLoading: MutableLiveData<Boolean> = MutableLiveData()
     fun getHeroes() {
-
+        isLoading.postValue(true)
         heroRepository.fetchHeroList()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ heroesList ->
+                isLoading.postValue(false)
                 Timber.d("heroes || $heroesList")
                 heroesLiveData.postValue(heroesList)
             }, { error ->
+                isLoading.postValue(false)
                 Timber.d("heroes || $error")
             })
     }
+
 
 }

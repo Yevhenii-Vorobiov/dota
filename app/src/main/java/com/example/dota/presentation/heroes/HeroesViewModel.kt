@@ -1,5 +1,7 @@
 package com.example.dota.presentation.heroes
 
+import android.annotation.SuppressLint
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.dota.data.Hero
@@ -15,21 +17,28 @@ class HeroesViewModel @Inject constructor(
     private val heroRepository: HeroRepository
 ) : ViewModel() {
 
+    val errorLiveData: MutableLiveData<Throwable> = MutableLiveData()
     val heroesLiveData: MutableLiveData<List<Hero>> = MutableLiveData()
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
+
+    @SuppressLint("CheckResult")
     fun getHeroes() {
-        isLoading.postValue(true)
-        heroRepository.fetchHeroList()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ heroesList ->
-                isLoading.postValue(false)
-                Timber.d("heroes || $heroesList")
-                heroesLiveData.postValue(heroesList)
-            }, { error ->
-                isLoading.postValue(false)
-                Timber.d("heroes || $error")
-            })
+        if (heroesLiveData.value == null) {
+            isLoading.postValue(true)
+            heroRepository.fetchHeroList()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ heroesList ->
+                    isLoading.postValue(false)
+                    Timber.d("heroes || $heroesList")
+                    heroesLiveData.postValue(heroesList)
+                }, { error ->
+                    isLoading.postValue(false)
+                    Timber.d("heroes || $error")
+                    errorLiveData.postValue(error)
+                })
+        }
+
     }
 
 

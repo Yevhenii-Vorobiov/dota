@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.dota.data.models.Hero
 import com.example.dota.data.repositories.HeroRepository
+import com.example.dota.util.extentions.cacheThresholdPassed
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -20,25 +21,32 @@ class HeroesViewModel @Inject constructor(
     val heroesLiveData: MutableLiveData<List<Hero>> = MutableLiveData()
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
 
-    @SuppressLint("CheckResult")
+
     fun getHeroes() {
-        if (heroesLiveData.value == null) {
-            isLoading.postValue(true)
-            heroRepository.fetchHeroList()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ heroesList ->
-                    isLoading.postValue(false)
-                    Timber.d("heroes || $heroesList")
-                    heroesLiveData.postValue(heroesList)
-                }, { error ->
-                    isLoading.postValue(false)
-                    Timber.d("heroes || $error")
-                    errorLiveData.postValue(error)
-                })
+        isLoading.postValue(true)
+        val cachedHeroList = heroRepository.getHeroListFromCache()
+        if (cachedHeroList == null || heroRepository.getLastTimeCached().cacheThresholdPassed()) {
+            fetchHeroListFromRemote()
+        } else {
+            isLoading.postValue(false)
+            cachedHeroList.let { heroesLiveData.postValue(it) }
         }
 
     }
 
+    @SuppressLint("CheckResult")
+    fun fetchHeroListFromRemote() {
+        heroRepository.fetchHeroList()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ heroesList ->
+                isLoading.postValue(false)
+                heroesLiveData.postValue(heroesList)
+                heroRepository.cacheHeroList(heroesList)
+            }, { error ->
+                isLoading.postValue(false)
+                errorLiveData.postValue(error)
+            })
+    }
 
 }

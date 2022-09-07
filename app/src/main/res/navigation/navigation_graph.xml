@@ -29,6 +29,6 @@
         tools:layout="@layout/fragment_hero_details">
         <argument
             android:name="hero"
-            app:argType="com.example.dota.data.Hero" />
+            app:argType="com.example.dota.data.models.Hero" />
     </fragment>
 </navigation>

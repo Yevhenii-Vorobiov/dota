@@ -2,8 +2,8 @@ package com.example.dota.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.dota.data.AppDatabase
-import com.example.dota.data.HeroDao
+import com.example.dota.data.local.db.AppDatabase
+import com.example.dota.data.local.dao.HeroDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -3,10 +3,8 @@ package com.example.dota.presentation.heroes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.dota.data.Hero
+import com.example.dota.data.models.Hero
 import com.example.dota.databinding.ItemHeroBinding
-import com.example.dota.di.RetrofitModule
-import com.example.dota.util.extentions.loadHeroImageFromUrl
 
 class HeroesAdapter(val onClick: (hero: Hero) -> Unit) : RecyclerView.Adapter<HeroesAdapter.HeroesViewHolder>() {
 

@@ -1,5 +1,8 @@
-package com.example.dota.data
+package com.example.dota.data.repositories
 
+import com.example.dota.data.models.Hero
+import com.example.dota.data.local.dao.HeroDao
+import com.example.dota.data.remote.HeroService
 import io.reactivex.Single
 import javax.inject.Inject
 

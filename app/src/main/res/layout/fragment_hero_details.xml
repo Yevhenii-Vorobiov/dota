@@ -9,7 +9,7 @@
 
         <variable
             name="hero"
-            type="com.example.dota.data.Hero" />
+            type="com.example.dota.data.models.Hero" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -1,8 +1,9 @@
-package com.example.dota.data
+package com.example.dota.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.dota.data.models.Hero
 
 @Dao
 interface HeroDao {

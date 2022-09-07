@@ -1,4 +1,4 @@
-package com.example.dota.data
+package com.example.dota.data.models
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -1,11 +1,10 @@
 package com.example.dota.presentation.heroes
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.dota.data.Hero
-import com.example.dota.data.HeroRepository
+import com.example.dota.data.models.Hero
+import com.example.dota.data.repositories.HeroRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

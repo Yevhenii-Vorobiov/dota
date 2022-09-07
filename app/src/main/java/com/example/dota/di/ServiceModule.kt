@@ -1,8 +1,6 @@
 package com.example.dota.di
 
-import com.example.dota.data.HeroService
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.example.dota.data.remote.HeroService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

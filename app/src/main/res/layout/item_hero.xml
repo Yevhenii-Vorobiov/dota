@@ -5,7 +5,7 @@
 
         <variable
             name="hero"
-            type="com.example.dota.data.Hero" />
+            type="com.example.dota.data.models.Hero" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

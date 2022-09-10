@@ -70,6 +70,7 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:2.4.3"
     kapt "androidx.room:room-compiler:2.4.3"
     implementation "androidx.room:room-rxjava2:2.4.3"
+    implementation "androidx.room:room-ktx:2.4.3"
 
     //rxjava
     implementation "io.reactivex.rxjava2:rxjava:2.2.9"
@@ -86,5 +87,4 @@ dependencies {
     implementation "androidx.core:core-ktx:1.8.0"
     implementation "androidx.fragment:fragment-ktx:1.5.2"
 
-    //navigation
 }

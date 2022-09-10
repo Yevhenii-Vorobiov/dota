@@ -15,12 +15,12 @@ class HeroRepository @Inject constructor(
 ) {
     fun fetchHeroList(): Single<List<Hero>> = heroService.fetchHeroList()
 
-    fun cacheHeroList(heroes: List<Hero>) {
+    suspend fun cacheHeroList(heroes: List<Hero>) {
         heroDao.insertAll(heroes)
         val time = Calendar.getInstance().timeInMillis
         heroPreferences.setHeroListLastTimeCached(time)
     }
     fun getLastTimeCached(): Long = heroPreferences.getHeroListLastTimeCached()
 
-    fun getHeroListFromCache(): List<Hero>? = heroDao.getAll()
+    suspend fun getHeroListFromCache(): List<Hero>? = heroDao.getAll()
 }

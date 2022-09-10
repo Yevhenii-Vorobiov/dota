@@ -8,8 +8,8 @@ import com.example.dota.data.models.Hero
 @Dao
 interface HeroDao {
     @Query("SELECT * FROM heroes")
-    fun getAll(): List<Hero>?
+    suspend fun getAll(): List<Hero>?
 
     @Insert
-    fun insertAll(heroes: List<Hero>)
+    suspend fun insertAll(heroes: List<Hero>)
 }

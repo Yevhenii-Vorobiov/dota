@@ -40,22 +40,28 @@ class HeroesViewModel @Inject constructor(
         }
 
     }
+
     // RxJava и coroutine
     @SuppressLint("CheckResult")
-    fun fetchHeroListFromRemote() {
-        heroRepository.fetchHeroList()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({ heroesList ->
-                viewModelScope.launch {
-                    isLoading.postValue(false)
-                    heroesLiveData.postValue(heroesList)
-                    heroRepository.cacheHeroList(heroesList)
-                }
-            }, { error ->
-                isLoading.postValue(false)
-                errorLiveData.postValue(error)
-            })
+    suspend fun fetchHeroListFromRemote() {
+        val heroesList = heroRepository.fetchHeroListUsingCoroutines()
+        isLoading.postValue(false)
+        heroesLiveData.postValue(heroesList)
+        heroRepository.cacheHeroList(heroesList)
     }
 
 }
+
+//        heroRepository.fetchHeroListUsingRxJava()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe({ heroesList ->
+//                viewModelScope.launch {
+//                    isLoading.postValue(false)
+//                    heroesLiveData.postValue(heroesList)
+//                    heroRepository.cacheHeroList(heroesList)
+//                }
+//            }, { error ->
+//                isLoading.postValue(false)
+//                errorLiveData.postValue(error)
+//            })

@@ -13,7 +13,9 @@ class HeroRepository @Inject constructor(
     private val heroDao: HeroDao,
     private val heroPreferences: HeroPreferences
 ) {
-    fun fetchHeroList(): Single<List<Hero>> = heroService.fetchHeroList()
+    fun fetchHeroListUsingRxJava(): Single<List<Hero>> = heroService.fetchHeroListUsingRxJava()
+
+    suspend fun fetchHeroListUsingCoroutines(): List<Hero> = heroService.fetchHeroListUsingCoroutines()
 
     suspend fun cacheHeroList(heroes: List<Hero>) {
         heroDao.insertAll(heroes)

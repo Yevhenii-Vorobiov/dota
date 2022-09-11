@@ -13,10 +13,10 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/woodsmoke"
         android:visibility="visible">
 
         <androidx.appcompat.widget.AppCompatImageView
-            app:loadHeroImageFromUrl="@{hero.img}"
             android:id="@+id/iv_hero_image"
             android:layout_width="128dp"
             android:layout_height="64dp"
@@ -25,6 +25,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:loadHeroImageFromUrl="@{hero.img}"
             tools:src="@drawable/ic_hero_axe" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@{hero.name}"
+            android:textColor="@color/iron"
             android:textSize="18sp"
             app:layout_constraintStart_toEndOf="@id/iv_hero_image"
             app:layout_constraintTop_toTopOf="@id/iv_hero_image"

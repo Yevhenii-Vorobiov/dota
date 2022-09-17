@@ -87,4 +87,6 @@ dependencies {
     implementation "androidx.core:core-ktx:1.8.0"
     implementation "androidx.fragment:fragment-ktx:1.5.2"
 
+    //CoordinatorLayout
+    implementation "androidx.coordinatorlayout:coordinatorlayout:1.2.0"
 }
